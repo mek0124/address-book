@@ -1,6 +1,6 @@
 [project]
 name = "address-book"
-version = "1.0.0"
+version = "1.2.0"
 description = "A modern desktop address book application built with PySide6"
 authors = [
     {name = "mek0124", email = "mek0124@proton.me"},
