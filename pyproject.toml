@@ -3,10 +3,10 @@ name = "address-book"
 version = "1.0.0"
 description = "A modern desktop address book application built with PySide6"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"},
+    {name = "mek0124", email = "mek0124@proton.me"},
 ]
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 keywords = ["address-book", "contacts", "desktop", "pyside6"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -38,9 +38,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/address-book"
-Repository = "https://github.com/yourusername/address-book"
-Issues = "https://github.com/yourusername/address-book/issues"
+Homepage = "https://github.com/mek0124/address-book"
+Repository = "https://github.com/mek0124/address-book"
+Issues = "https://github.com/mek0124/address-book/issues"
 
 [project.scripts]
 address-book = "main:main"
