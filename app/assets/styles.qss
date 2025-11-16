@@ -1,29 +1,37 @@
 QMainWindow {
-  background-color: #540863;
-  letter-spacing: 0.1em;
-  word-spacing: 0.1em;
+  background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 #3b0a4a, stop:1 #1e0728);
+  color: #f7ebff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+QScrollArea {
+  background: transparent;
+  border: none;
 }
 
 QScrollArea QWidget {
-  background-color: #92487a;
+  background-color: rgba(146, 72, 122, 0.35);
+  border: 1px solid #a86ea4;
+  border-radius: 14px;
+}
+
+QLabel {
+  color: #f7ebff;
+  font-size: 15px;
+}
+
+QLineEdit, QDateEdit {
+  background-color: #2b2b2b;
+  color: #f7ebff;
+  border: 1px solid #5b2753;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+QLineEdit:focus, QDateEdit:focus {
   border: 1px solid #e49ba6;
-  border-radius: 1rem;
-}
-
-QScrollArea QWidget QLabel {
-  border: none;
-  color: #FFD3D5;
-  font-size: 16px;
-}
-
-QScrollArea QWidget QLineEdit {
-  background-color: #707070;
-  border: 1px solid black;
-}
-
-QScrollArea QWidget QDateEdit {
-  background-color: #707070;
-  border: 1px solid black;
+  outline: none;
 }
 
 QFrame {
@@ -31,15 +39,23 @@ QFrame {
 }
 
 QStatusBar {
-  border-top: 2px solid #e49ba6;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-top: 1px solid #a86ea4;
+  color: #f7ebff;
 }
 
 QPushButton {
   background-color: #92487a;
+  color: #f7ebff;
   border: 1px solid #e49ba6;
+  border-radius: 12px;
+  padding: 8px 12px;
 }
 
 QPushButton:hover {
-  background-color: #e49ba6;
-  border: 1px solid #92487a;  
+  background-color: #a86ea4;
+}
+
+QPushButton:pressed {
+  background-color: #6d3c5d;
 }
