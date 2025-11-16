@@ -1,4 +1,6 @@
 PySide6
 pydantic
-sqlalchemy
 python-dotenv
+build
+setuptools
+wheel
