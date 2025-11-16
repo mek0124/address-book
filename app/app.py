@@ -20,8 +20,8 @@ class AddressBook(QMainWindow, Ui_w_MainWindow):
         self.current_contact_id = None
         
         self.setupUi(self)
-        self.setMinimumWidth(800)
-        self.setMinimumHeight(600)
+        self.setMinimumWidth(1200)
+        self.setMinimumHeight(800)
         
         self.de_birthday.setDate(date.today())
         
@@ -41,7 +41,7 @@ class AddressBook(QMainWindow, Ui_w_MainWindow):
     def show_error_success(self, is_error: bool, message: str) -> None:
         self.statusBar.showMessage(message)
         self.statusBar.setStyleSheet(
-            f"background-color: {'red' if is_error else 'green'}; color: black;"
+            f"background-color: {'rgba(176,0,32,0.45)' if is_error else 'rgba(46,125,50,0.45)'}; color: #f7ebff;"
         )
         self.start_clear_timer()
 
@@ -147,6 +147,12 @@ class AddressBook(QMainWindow, Ui_w_MainWindow):
         email = self.le_email_address.text().strip()
         home_phone = self.le_home_phone.text().strip()
         cell_phone = self.le_cell_phone.text().strip()
+        home_digits = "".join(ch for ch in home_phone if ch.isdigit())
+        cell_digits = "".join(ch for ch in cell_phone if ch.isdigit())
+        if not home_digits:
+            home_phone = ""
+        if not cell_digits:
+            cell_phone = ""
         birthday = self.de_birthday.date().toString("yyyy-MM-dd")
         street = self.le_street.text().strip()
         city = self.le_city.text().strip()
