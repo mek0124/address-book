@@ -3,3 +3,4 @@ __init__.py
 app/data/
 dist/
 address_book.egg-info/
+agreed.txt
