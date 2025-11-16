@@ -1,16 +1,26 @@
-from sqlalchemy import Column, String
-from app.database.db import Base
+from pydantic import BaseModel
 
 
-class Contact(Base):
-    __tablename__ = "contacts"
-
-    id: str
+class ContactCreate(BaseModel):
     first_name: str
     last_name: str = None
     email_address: str = None
     home_phone: str = None
     cell_phone: str
+    birthday: str = None
+    street: str = None
+    city: str = None
+    state: str = None
+    postal_code: str = None
+
+
+class ContactResponse(BaseModel):
+    id: str
+    first_name: str
+    last_name: str = None
+    email_address: str = None
+    home_phone: str = None
+    cell_phone: str = None
     birthday: str = None
     street: str = None
     city: str = None
