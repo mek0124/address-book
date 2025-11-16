@@ -6,7 +6,7 @@ class ContactCreate(BaseModel):
     last_name: str = None
     email_address: str = None
     home_phone: str = None
-    cell_phone: str
+    cell_phone: str = None
     birthday: str = None
     street: str = None
     city: str = None
