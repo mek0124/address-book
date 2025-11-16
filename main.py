@@ -1,41 +1,26 @@
 from PySide6.QtWidgets import QApplication
 from pathlib import Path
-
-from app.app import AddressBook
-from app.database.db import Base, engine
-
 import sys
 import os
 
+from app.app import AddressBook
+from app.database.db import DatabaseEngine
 
-def check_for_data_folder() -> None:
+def get_app_styles() -> str:
     curr_dir = Path(__file__).parent
-    data_folder = os.path.join(curr_dir, "app", "data")
+    styles_file = os.path.join(curr_dir, "app", "assets", "styles.qss")
 
-    if not os.path.isdir(data_folder):
-        os.makedirs(data_folder, exist_ok=True)
-
-
-def check_for_data_file() -> None:
-    curr_dir = Path(__file__).parent
-    data_file = os.path.join(curr_dir, "app", "data", "contacts.db")
-
-    if not os.path.isfile(data_file):
-        Base.metadata.create_all(bind=engine)
- 
+    with open(styles_file, 'r') as f:
+        return f.read()
  
 if __name__ == '__main__':
-    check_for_data_folder()
-    check_for_data_file()
+    app_db = DatabaseEngine()
+    app_db.check_for_db_file()
 
     app = QApplication(sys.argv)
+    app.setStyleSheet(get_app_styles())
  
-    mainwindow = AddressBook()
+    mainwindow = AddressBook(app_db)
     mainwindow.show()
-
-    center_point = QApplication.primaryScreen().availableGeometry().center()
-    window_frame = mainwindow.frameGeometry()
-    window_frame.moveCenter(center_point)
-    mainwindow.move(window_frame.topLeft())
  
     sys.exit(app.exec())
