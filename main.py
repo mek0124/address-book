@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QMessageBox
 from pathlib import Path
 import sys
 import os
@@ -14,49 +14,52 @@ def get_app_styles() -> str:
         return f.read()
     
 def get_agreement() -> bool:
+    curr_dir = Path(__file__).parent
+    data_dir = curr_dir / "app" / "data"
+    os.makedirs(data_dir, exist_ok=True)
+    agreed_file = data_dir / "agreed.txt"
+
     try:
-        with open("./agreed.txt", 'r') as f:
-            did_agree = f.read()
+        if agreed_file.exists():
+            did_agree = agreed_file.read_text().strip()
+            if did_agree == "True":
+                return True
 
-            if did_agree == "False":
-                user_agrees = input("\nDo you agree to allow this application to read/write data to your system? (Y/N):\n")
-                valid_options = ['y', 'n']
+        reply = QMessageBox.question(
+            None,
+            "Permissions",
+            "Allow the Address Book to read/write its database on your system?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.Yes,
+        )
 
-                while not user_agrees in valid_options:
-                    print("\nInvalid Option. Try Again")
-                    user_agrees = input("\nDo you agree to allow this application to read/write data to your system? (Y/N):\n")
+        if reply == QMessageBox.Yes:
+            agreed_file.write_text("True")
+            return True
 
-                    if user_agrees in valid_options:
-                        break
-
-                if user_agrees == 'y':
-                    with open("./agreed.txt", 'w') as f:
-                        f.write("True")
-
-                else:
-                    print("Application cannot run without permissions to read/write to it's own database")
-                    sys.exit(1)
-
-    except FileNotFoundError:
-        with open("./agreed.txt", 'w+') as new_file:
-            new_file.write("False")
-
-        get_agreement()
+        QMessageBox.warning(
+            None,
+            "Permission Required",
+            "The application cannot run without permission to manage its database.",
+        )
+        return False
 
     except Exception as e:
-        raise e
+        QMessageBox.critical(None, "Error", f"An error occurred: {e}")
+        return False
 
  
 if __name__ == '__main__':
-    get_agreement()
+    app = QApplication(sys.argv)
+    app.setStyleSheet(get_app_styles())
+
+    if not get_agreement():
+        sys.exit(1)
 
     app_db = DatabaseEngine()
     app_db.check_for_db_file()
 
-    app = QApplication(sys.argv)
-    app.setStyleSheet(get_app_styles())
- 
     mainwindow = AddressBook(app_db)
     mainwindow.show()
- 
+
     sys.exit(app.exec())
