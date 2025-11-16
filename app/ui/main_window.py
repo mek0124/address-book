@@ -46,7 +46,7 @@ class Ui_w_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 356, 453))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 356, 465))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.label = QLabel(self.scrollAreaWidgetContents)
@@ -167,15 +167,24 @@ class Ui_w_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.scrollArea, 0, 0, 1, 1)
 
-        self.pb_save = QPushButton(self.frame_2)
-        self.pb_save.setObjectName(u"pb_save")
-
-        self.gridLayout_3.addWidget(self.pb_save, 1, 0, 1, 1)
-
-        self.pb_delete = QPushButton(self.frame_2)
+        self.frame_4 = QFrame(self.frame_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_6 = QGridLayout(self.frame_4)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.pb_delete = QPushButton(self.frame_4)
         self.pb_delete.setObjectName(u"pb_delete")
 
-        self.gridLayout_3.addWidget(self.pb_delete, 2, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.pb_delete, 1, 2, 1, 1)
+
+        self.pb_save = QPushButton(self.frame_4)
+        self.pb_save.setObjectName(u"pb_save")
+
+        self.gridLayout_6.addWidget(self.pb_save, 1, 1, 1, 1)
+
+
+        self.gridLayout_3.addWidget(self.frame_4, 1, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
@@ -186,17 +195,17 @@ class Ui_w_MainWindow(object):
         self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_4 = QGridLayout(self.frame_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.scrollArea_2 = QScrollArea(self.frame_3)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setWidgetResizable(True)
+        self.contact_list = QScrollArea(self.frame_3)
+        self.contact_list.setObjectName(u"contact_list")
+        self.contact_list.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
         self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 356, 517))
         self.gridLayout_5 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+        self.contact_list.setWidget(self.scrollAreaWidgetContents_2)
 
-        self.gridLayout_4.addWidget(self.scrollArea_2, 0, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.contact_list, 0, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.frame_3, 0, 1, 1, 1)
@@ -239,7 +248,7 @@ class Ui_w_MainWindow(object):
         self.label_10.setText(QCoreApplication.translate("w_MainWindow", u"Postal Code", None))
         self.le_postal_code.setInputMask(QCoreApplication.translate("w_MainWindow", u"99999", None))
         self.le_postal_code.setPlaceholderText(QCoreApplication.translate("w_MainWindow", u"12345", None))
-        self.pb_save.setText(QCoreApplication.translate("w_MainWindow", u"Save", None))
         self.pb_delete.setText(QCoreApplication.translate("w_MainWindow", u"Delete", None))
+        self.pb_save.setText(QCoreApplication.translate("w_MainWindow", u"Save", None))
     # retranslateUi
 

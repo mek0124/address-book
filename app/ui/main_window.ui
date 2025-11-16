@@ -44,7 +44,7 @@
                <x>0</x>
                <y>0</y>
                <width>356</width>
-               <height>453</height>
+               <height>465</height>
               </rect>
              </property>
              <layout class="QFormLayout" name="formLayout">
@@ -251,17 +251,29 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QPushButton" name="pb_save">
-            <property name="text">
-             <string>Save</string>
+           <widget class="QFrame" name="frame_4">
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="pb_delete">
-            <property name="text">
-             <string>Delete</string>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
             </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="1" column="2">
+              <widget class="QPushButton" name="pb_delete">
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="pb_save">
+               <property name="text">
+                <string>Save</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
@@ -277,7 +289,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
-           <widget class="QScrollArea" name="scrollArea_2">
+           <widget class="QScrollArea" name="contact_list">
             <property name="widgetResizable">
              <bool>true</bool>
             </property>
