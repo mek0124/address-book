@@ -23,8 +23,6 @@ class AddressBook(QMainWindow, Ui_w_MainWindow):
         self.setMinimumWidth(1200)
         self.setMinimumHeight(800)
         
-        self.de_birthday.setDate(date.today())
-        
         self.pb_save.clicked.connect(self.save_contact)
         self.pb_delete.clicked.connect(self.delete_contact)
         
@@ -194,15 +192,15 @@ class AddressBook(QMainWindow, Ui_w_MainWindow):
 
         new_contact = ContactCreate(
             first_name=first_name,
-            last_name=last_name or None,
-            email_address=email or None,
-            home_phone=home_phone or None,
-            cell_phone=cell_phone or None,
-            birthday=birthday or None,
-            street=street or None,
-            city=city or None,
-            state=state or None,
-            postal_code=postal_code or None,
+            last_name=last_name or "",
+            email_address=email or "",
+            home_phone=home_phone or "",
+            cell_phone=cell_phone or "",
+            birthday=birthday or "",
+            street=street or "",
+            city=city or "",
+            state=state or "",
+            postal_code=postal_code or "",
         )
         
         is_valid, message = self.contact_service.validate_contact(new_contact)

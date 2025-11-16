@@ -10,7 +10,6 @@ import os
 
 
 class DatabaseEngine:
-    
     def check_for_db_file(self) -> str:
         curr_dir = Path(__file__).parent
         one_up = curr_dir.parent
