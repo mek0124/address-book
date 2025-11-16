@@ -1,3 +1,5 @@
 __pycache__/
 __init__.py
 app/data/
+dist/
+address_book.egg-info/
