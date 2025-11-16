@@ -10,8 +10,10 @@ class ContactValidator:
 
         home = (new_contact.home_phone or "").strip()
         cell = (new_contact.cell_phone or "").strip()
+        home_digits = "".join(ch for ch in home if ch.isdigit())
+        cell_digits = "".join(ch for ch in cell if ch.isdigit())
 
-        if not home and not cell:
+        if not home_digits and not cell_digits:
             return False, "You must provide at least one phone number."
 
         if new_contact.email_address:
