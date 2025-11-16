@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QFrame, QVBoxLayout, QLabel
+from PySide6.QtWidgets import QFrame, QVBoxLayout, QLabel, QGraphicsDropShadowEffect
 from PySide6.QtCore import Signal, Qt
 
 class ClickableCard(QFrame):
@@ -12,26 +12,36 @@ class ClickableCard(QFrame):
     def setup_ui(self):
         self.setStyleSheet("""
             QFrame {
-                background-color: #6d3c5d;
-                border: 1px solid #e49ba6;
-                border-radius: 10px;
-                padding: 8px;
+                background-color: rgba(109, 60, 93, 0.85);
+                border: 1px solid #a86ea4;
+                border-radius: 12px;
+                padding: 10px;
+            }
+            QFrame:hover {
+                background-color: rgba(168, 110, 164, 0.95);
             }
         """)
+        self.setCursor(Qt.PointingHandCursor)
+
+        shadow = QGraphicsDropShadowEffect(self)
+        shadow.setBlurRadius(16)
+        shadow.setOffset(0, 4)
+        shadow.setColor(Qt.black)
+        self.setGraphicsEffect(shadow)
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(8, 6, 8, 6)
         
         self.name_label = QLabel()
-        self.name_label.setStyleSheet("color: #FFD3D5; font-size: 16px; font-weight: bold;")
+        self.name_label.setStyleSheet("color: #f7ebff; font-size: 16px; font-weight: bold;")
         layout.addWidget(self.name_label)
         
         self.phone_label = QLabel()
-        self.phone_label.setStyleSheet("color: #FFD3D5; font-size: 14px;")
+        self.phone_label.setStyleSheet("color: #f7ebff; font-size: 14px;")
         layout.addWidget(self.phone_label)
         
         self.email_label = QLabel()
-        self.email_label.setStyleSheet("color: #FFD3D5; font-size: 13px;")
+        self.email_label.setStyleSheet("color: #e9d3ff; font-size: 13px;")
         layout.addWidget(self.email_label)
 
     def set_contact_info(self, contact):
