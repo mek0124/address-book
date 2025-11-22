@@ -27,9 +27,18 @@ function updateClock() {
   dateLabel.innerText = date;
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-  updateClock();
+function loadHeader() {
+  fetch('/static/components/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.body.insertAdjacentHTML('afterbegin', data);
+      document.body.style.visibility = 'visible';
+      updateClock(); // Call after header is loaded
+      const intervalId = setInterval(updateClock, 1000);
+    })
+    .catch(error => console.error('Error loading header:', error));
+}
 
-  const intervalId = setInterval(updateClock, 1000);
-  return () => clearInterval(intervalId);
+document.addEventListener('DOMContentLoaded', function() {
+  loadHeader();
 });
