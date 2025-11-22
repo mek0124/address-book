@@ -1,6 +1,0 @@
-PySide6
-pydantic
-python-dotenv
-build
-setuptools
-wheel

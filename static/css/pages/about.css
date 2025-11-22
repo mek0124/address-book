@@ -1,0 +1,120 @@
+.inner-navigation,
+.about-app,
+.about-body,
+.about-card-body,
+.dev-container,
+.dev-team-card,
+.dev-team-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.dev-team-card,
+.about-card {
+  border: 2px solid var(--accent);
+  border-radius: 2rem;
+  box-shadow: 2px 2px 10px var(--accentHover);
+  background-color: var(--secondary);
+}
+
+.dev-team-card {
+  width: 250px;
+  height: 180px;
+  justify-content: start;
+}
+
+.about-card {
+  width: 30%;
+  height: 40vh;
+}
+
+.about-app,
+.about-card-body,
+.dev-container,
+.dev-team-card,
+.dev-team-title-container {
+  flex-direction: column;
+}
+
+.dev-team-title-container {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.about-app,
+.about-body {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.about-body,
+.dev-container {
+  width: 100%;
+  margin-bottom: 1rem;
+  justify-content: space-evenly;
+}
+
+.about-card-body {
+  height: 80%;
+}
+
+.about-card-title {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--foreground);
+  width: 100%;
+  text-decoration: underline;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.about-body-text {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--foreground);
+  text-align: center;
+  width: 70%;
+}
+
+.dev-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  margin: 1rem;
+}
+
+.dev-card-title {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--foreground);
+}
+
+.dev-job-text {
+  font-style: italic;
+  font-size: 0.7rem;
+  color: var(--foreground);
+  width: 100%;
+  text-align: center;
+}
+
+.dev-card-link {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--foreground);
+}
+
+.about-title {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--foreground);
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}

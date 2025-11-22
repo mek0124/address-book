@@ -1,0 +1,183 @@
+/* global styles */
+:root {
+  --primary: #0C2B4E;
+  --secondary: #1A3D64;
+  --accent: #1D546C;
+  --accentHover: #F4F4F4;
+  --foreground: #a9a9a9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primary);
+}
+
+/* containers */
+.header-container,
+.upper-container,
+.title-container,
+.clock-container,
+.nav-container,
+.body-container,
+.info-row,
+.card,
+.card-body,
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-container,
+.upper-container,
+.title-container,
+.nav-container,
+.info-row,
+.body-container,
+.card-body,
+.footer-container   {
+  width: 100%;
+}
+
+.header-container {
+  flex-direction: column;
+  border-bottom: 2px solid var(--accent);
+}
+
+.title-container {
+  margin-left: 0.51rem;
+  margin-top: 0.51rem;
+}
+
+.clock-container {
+  flex-direction: column;
+  width: 30%;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.nav-container {
+  justify-content: start;
+  border-top: 1px solid var(--accent);
+}
+
+.info-row {
+  justify-content: space-evenly;
+}
+
+.body-container {
+  flex-grow: 1;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.card {
+  flex-direction: column;
+  border: 2px solid var(--accent);
+  border-radius: 1.2rem;
+  box-shadow: 2px 2px 10px var(--foreground);
+  width: 25%;
+  height: 450px;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.footer-container {
+  justify-content: space-evenly;
+  height: 5vh;
+  background-color: var(--accent);
+}
+
+/* ui elements */
+
+#app-icon {
+  border-radius: 9999px;
+  width: 50px;
+  height: 50px;
+  margin: 0.3rem;
+}
+
+.card-title,
+#title {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--foreground);
+  width: 100%;
+}
+
+.card-title {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.card-text,
+#sub-title {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--foreground);
+  width: 100%;
+  text-align: center;
+}
+
+.card-text {
+  width: 85%;
+}
+
+#time-display,
+#date-display {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--foreground);
+  width: 100%;
+  text-align: end;
+}
+
+.nav-button {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  margin: 0.3rem 1rem;
+  padding: 0.3rem;
+  border-left: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  width: 4%;
+  text-align: center;
+  transition: all 0.3s ease-in;
+}
+
+.nav-button:hover {
+  font-weight: bold;
+  font-style: italic;
+  scale: 1.2; 
+}
+
+.nav-button,
+.nav-button:hover,
+.nav-button:focus {
+  outline: none;
+}
+
+#footer-text,
+#author-id,
+#footer-link {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--foreground);
+}
